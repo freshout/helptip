@@ -1,0 +1,86 @@
+# helpTip
+
+Show a collection of tooltips to new users of your site
+to help them understand the elements of the page.
+
+## Options
+
+- `ttl` integer Time to live for the cookie to don't prompt to user, in days. Default is 30 days.
+- `tips` array Collection of tips to show in your page. Each tip is a hash with these options:
+
+### Options for each tip
+
+- `highlight` string CSS selector of the item you want to highlight.
+- `title` string Tittle for the tip to display.
+- `text` string Text to display in the tooltip.
+- `xy` hash Hash containing x, y adjusting for position
+- `position` string Overrides absolute position for cases when fixed is needed
+- `side` string top|bottom|left|right position of the blue dot.
+
+## Instructions
+
+Include the js file in your head, along with the css.
+
+Then you create the tooltips you want to show. Each tooltip is appended to an element, the one you want to highlight.
+Each tooltip has some configurations (read above) to customize the title, text and position of the dot.
+
+For example:
+
+<pre>
+$.helpTip({
+    tips: [
+        {
+          title: 'Participate! Help us in moderating content',
+          text: 'Decide if the content stays by voting the entries up and down according to your preference',
+          highlight: '.participate-voting.ad',
+          side: 'bottom',
+          position: 'fixed',
+          xy: {x: 600, y: 10}
+        },
+        {
+          title: 'You can post articles, videos, and images here',
+          text: 'Paste the link of the article, image URL or video that is relevant to this topic',
+          highlight: '.voice-bar',
+          side: 'top'
+        },
+        {
+          title: 'You can view and filter your content here',
+          text: 'Filter according to the type of content or by time it was submitted',
+          highlight: '.filter.select.left > .button',
+          side: 'bottom',
+          xy: {x:50}
+        },
+        {
+          title: 'Request a voice',
+          text: 'Didn\'t find what you were looking for? Request it here',
+          highlight: '.pageSlide-request',
+          side: 'right',
+          xy: {x: 20, y: -70},
+          position: 'fixed'
+        },
+        {
+          title: 'You can search for other voices here',
+          text: '',
+          position: 'fixed',
+          highlight: '.search-wrapper',
+          side: 'top'
+        }
+    ]
+});
+</pre>
+
+## Demo
+
+You can see it working if you enter for the first time to any voice in [Crowdvoice](http://crowdvoice.org).
+
+## Credits and contributors
+
+* Rene Monroy
+* Edgar J. Suárez
+
+This is a [Freshout](http://freshout.us) open source plugin. Check out our others [open source projects](http://github.com/freshout).
+
+## License
+
+Released under the [MIT License](http://www.opensource.org/licenses/mit-license.php)
+ 
